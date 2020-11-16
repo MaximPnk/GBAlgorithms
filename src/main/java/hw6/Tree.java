@@ -6,8 +6,6 @@ public interface Tree<E extends Comparable<? super E>> {
 
     void display(int level);
 
-    boolean customBalanced(int level);
-
     enum TraverseMode {
         IN_ORDER,
         PRE_ORDER,

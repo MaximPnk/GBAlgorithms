@@ -288,27 +288,4 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E> {
     private int height(Node<E> node) {
         return node == null ? 0 : 1 + Math.max(height(node.getLeftChild()), height(node.getRightChild()));
     }
-
-    @Override
-    public boolean customBalanced(int level) {
-        if (root.getLeftChild() == null && root.getRightChild() == null) {
-            return true;
-        } else if (root.getLeftChild() == null || root.getRightChild() == null) {
-            return false;
-        } else {
-            return customCheck(root, 0, level);
-        }
-    }
-
-    private boolean customCheck(Node<E> node, int i, int level) {
-        if (node == null) {
-            return true;
-        } else if (node.isLeaf()) {
-            return i >= level - 1;
-        }
-        return customCheck(node.getLeftChild(), ++i, level) && customCheck(node.getRightChild(), ++i, level);
-
-    }
-
-
 }

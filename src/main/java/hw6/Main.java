@@ -9,11 +9,8 @@ public class Main {
     }
 
     private static void createTrees(int trees, int level, int range) {
-
         int balancedTrees = 0;
         int notBalancedTrees = 0;
-        int customBalancedTrees = 0;
-        int customNotBalancedTrees = 0;
 
         Random random = new Random();
 
@@ -23,11 +20,6 @@ public class Main {
                 tree.addByLevel(random.nextInt(2 * range) - range, level);
             }
 //            tree.display(level);
-            if (tree.customBalanced(level)) {
-                customBalancedTrees++;
-            } else {
-                customNotBalancedTrees++;
-            }
             if (tree.isBalanced()) {
                 balancedTrees++;
             } else {
@@ -40,9 +32,5 @@ public class Main {
         System.out.println("Balanced trees = " + balancedTrees);
         System.out.println("Not balanced trees = " + notBalancedTrees);
         System.out.printf("Success percent = %.2f%%\r\n\r\n", (double) balancedTrees/trees * 100);
-
-        System.out.println("[My method]Balanced trees = " + customBalancedTrees);
-        System.out.println("[My method]Not balanced trees = " + customNotBalancedTrees);
-        System.out.printf("[My method]Success percent = %.2f%%", (double) customBalancedTrees/trees * 100);
     }
 }
